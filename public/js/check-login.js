@@ -4,7 +4,7 @@
 
   // check sessionStorage
   if (!sessionStorage.getItem('token') || !sessionStorage.getItem('user')) {
-    location.href = 'login.html';
+    location.href = 'login';
     return;
   }
   // check if token valid
@@ -16,7 +16,7 @@
     };
     const response = await fetch(url + '/user/token', fetchOptions);
     if (!response.ok) {
-      location.href = 'logout.html';
+      location.href = 'logout';
     } else {
       const json = await response.json();
       sessionStorage.setItem('user', JSON.stringify(json.user));
