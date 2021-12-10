@@ -6,7 +6,7 @@ const promisePool = pool.promise();
 const getAllUsers = async (next) => {
   try {
     const [rows] = await promisePool.execute(
-      'SELECT user_id, name, email, role FROM wop_user'
+      'SELECT userID, username, email, ppicture, bio FROM m_user'
     );
     return rows;
   } catch (e) {
@@ -18,7 +18,7 @@ const getAllUsers = async (next) => {
 const getUser = async (id, next) => {
   try {
     const [rows] = await promisePool.execute(
-      'SELECT user_id, name, email, role FROM wop_user WHERE user_id = ?',
+      'SELECT userID, email, ppicture, bio FROM m_user WHERE user_id = ?',
       [id]
     );
     return rows;
@@ -28,11 +28,11 @@ const getUser = async (id, next) => {
   }
 };
 
-const addUser = async (name, email, password, next) => {
+const addUser = async (username, email, password, ppicture, bio, next) => {
   try {
     const [rows] = await promisePool.execute(
-      'INSERT INTO wop_user (name, email, password) VALUES (?, ?, ?)',
-      [name, email, password]
+      'INSERT INTO m_user (username, email, password, ppicture, bio) VALUES (?, ?, ?, ?, ?)',
+      [username, email, password, ppicture, bio]
     );
     return rows;
   } catch (e) {
@@ -45,7 +45,7 @@ const getUserLogin = async (params) => {
   try {
     console.log('getUserLogin', params);
     const [rows] = await promisePool.execute(
-      'SELECT * FROM wop_user WHERE email = ?;',
+      'SELECT * FROM m_user WHERE email = ?;',
       params
     );
     return rows;

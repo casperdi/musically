@@ -8,9 +8,11 @@ router.post('/login', login);
 
 router.post(
   '/register',
-  body('name').isLength({ min: 3 }).escape(),
+  body('username').isLength({ min: 3 }).escape(),
   body('email').isEmail(),
-  body('passwd').matches('(?=.*[A-Z]).{8,}'),
+  body('password').matches('(?=.*[A-Z]).{8,}'),
+  body('ppicture'),
+  body('bio').isLength({max: 200}).escape(),
   user_post
 );
 

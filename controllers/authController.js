@@ -31,16 +31,16 @@ const user_post = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log('user_post validation', errors.array());
-    next(httpError('invalid data', 400));
+    next(httpError('invalid data :)', 400));
     return;
   }
 
   try {
     console.log('lomakkeesta', req.body);
-    const { name, email, passwd } = req.body;
+    const { username, email, password, ppicture, bio } = req.body;
     // hash password
-    const hash = bcrypt.hashSync(passwd, salt);
-    const tulos = await addUser(name, email, hash, next);
+    const hash = bcrypt.hashSync(password, salt);
+    const tulos = await addUser(username, email, hash, ppicture, bio, next);
     if (tulos.affectedRows > 0) {
       res.json({
         message: 'user added',
