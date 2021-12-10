@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/22c82907f2.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="container">
+        <header id="login-header">
+            <img src="img/logologin.png" alt="">
+        </header>
+        <main id="login-main">
+            <form id="login-form" action="http://localhost:8000/auth/login" method="post">
+                <input type="email" name="username" placeholder="Käyttäjätunnus">
+                <input type="password" name="password" placeholder="Salasana">
+                <input type="submit" value="Kirjaudu"> 
+               <!--  <button type="submit">Kirjaudu</button> -->
+            </form>
+        </main>
+        <footer id="login-footer">
+            <p>Eikö löydy tiliä |<a id="register" href="register.html"> rekisteröidy</a></p>
+        </footer>
+    </div>
+    <script src="./js/serialize.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>

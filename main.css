@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(33,4,80,1) 100%);
+    height: 100%;
+    font-size: 16px;
+    font-family: 'Quicksand';
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: #3a3a3a solid 2px;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    width: 100%
+}
+
+footer{
+    color: #fff;
+    border-top: 2px solid #3a3a3a;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    padding: 2%;
+    background-color: #000;
+    display: flex;
+}
+
+header img{
+    width: 55%;
+}
+
+
+#container{
+    background: rgb(33,4,80);
+    background: radial-gradient(rgba(33,4,80,1) 0%, rgba(0,0,0,1) 80%);
+    height: 100%;
+}
+
+.fas {
+    /* color: #4E00CE; */
+    color: #fff;
+    padding: 3%;
+    font-size: 2.5em;
+    padding-right: 8%;
+}
+
+.selected {
+    color: #4E00CE;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer a {
+    width: 50%;
+    font-size: 2.5em;
+}
+
+main{
+    padding: 2%;
+    padding-bottom: 20%;
+    padding-top: 20%;
+}
+
+
+/*LOGIN*/
+
+#login-header{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    border: none;
+    position: static;
+    background-color: rgba(245, 245, 245, 0);
+} 
+
+#login-header img {
+    width: 100%;
+}
+
+#login-main{
+    padding: 2%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+form input{
+    width: 90%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    padding: 3%;
+    background-color:rgba(245, 245, 245, 0.1);
+    border: #3a3a3a solid 2px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Quicksand';
+    text-align: center;
+    box-shadow: 10px 5px 17px #020202;
+}
+
+form input[type=submit]{
+    width: 60%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    padding: 3%;
+    font-size: 1em;
+    border: #4E00CE solid 1px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #4E00CE;
+    font-family: 'Quicksand';
+}
+
+#login-footer{
+    color: #fff;
+    border-top: 2px solid #3a3a3a;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    padding: 5%;
+    display: block;
+}
+
+
+#register{
+    color: #6100FF;
+    font-size: 1em;
+}
+
+/*/LOGIN*/
+
+/* PROFILE */
+
+ #profile-info{
+    display: flex;
+    padding-top: 5%;
+    width: 100%; 
+}
+
+#profilepic {
+    width: 110px;
+    border-radius: 50%;
+    margin-right: 5%;
+    height: 110px;
+ 
+    
+}
+
+#info-wrap{
+    
+    float: right;
+}
+
+#profile-name{
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding-top: 4%;
+}
+
+#followers {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10%;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* /PROFILE */
+
