@@ -8,43 +8,44 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/edit.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/35265ab825.js" crossorigin="anonymous"></script>
 </head>
 
 <header>
-    <img id="logo" src="img/Group_3.png" alt="logo">
-    <i id="plus" class="fas fa-plus"></i> 
+    <a href="front"><img id="logo" src="img/Group_3.png" alt="logo"></a>
+    <a href="addPost" id="plus" class="fas fa-plus"></a>
       
 </header>
 
 <body>
         <div class="takaisin">
-            <input class="first_button" type="submit" value="Takaisin"></input>
+            <input id="edit_takaisin" class="first_button" type="submit" value="Takaisin"></input>
         </div>
 
     <section id="profile">
         <div>
             <h3>Käyttäjä</h3>
-            <input type="text">
+            <input id="edit_kayttaja" type="text">
         </div>
         <div>
             <h3>Sähköposti</h3>
-            <input type="email">
+            <input id="edit_sPosti" type="email">
         </div>
         <div>
-            <h3>Tietoja</h3>
-            <input type="text" style="height: 90%;">
+            <h3>Bio</h3>
+            <input id="edit_bio" type="text" style="height: 90%;">
         </div>
     </section>
 
     <div class="tallenna">
-        <input class="first_button" type="submit" value="Tallenna"></input>
+        <input id="edit_tallenna" class="first_button" type="submit" value="Tallenna"></input>
     </div>
 
 <footer>
-        <i class="fas fa-home"></i>
-        <i class="fas fa-user-circle"></i>
+    <a href="front" class="fas fa-home "></a>
+    <a href="profile" class="fas fa-user-circle"></a>
 </footer>
 </body>
 

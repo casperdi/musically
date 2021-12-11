@@ -1,17 +1,4 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: #3a3a3a solid 2px;
-}
-
-#logo {
-    width: 55%;
-}
-#plus{
-    width: 20%;
-}
-
+/* 
 body {
     background-color: black;
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 30%, rgba(33, 4, 80, 1) 100%);
@@ -24,7 +11,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
+} */
 
 .takaisin{
     display: flex;
@@ -37,6 +24,7 @@ body {
     margin-right: 11%;
     margin-bottom: 5%;
 }
+
 
 
 .first_button {
@@ -77,17 +65,5 @@ input {
     box-shadow: 10px 5px 17px #020202;
 }
 
-footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 60px;
-    background-color: #000;
-    border-top: solid 2px #3a3a3a;
-    
-}
 
-.fas{
-    font-size: 1.7em;
-    
-}
+
