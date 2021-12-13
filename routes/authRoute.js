@@ -2,7 +2,7 @@
 const express = require('express');
 const { body } = require('express-validator');
 const router = express.Router();
-const { login, user_post } = require('../controllers/authController');
+const { login, user_post, user_put } = require('../controllers/authController');
 
 router.post('/login', login);
 
@@ -21,6 +21,7 @@ router.put(
   body('ppicture'),
   body('email').isEmail(),
   body('bio').isLength({max: 200}).escape(),
+  user_put
 )
 
 module.exports = router;

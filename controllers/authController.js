@@ -55,7 +55,51 @@ const user_post = async (req, res, next) => {
   }
 };
 
+const user_put = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log('user_post validation', errors.array());
+    next(httpError('invalid data :)', 400));
+    return;
+  }
+
+  try {
+    console.log('lomakkeesta', req.body);
+    const user_post = async (req, res, next) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        console.log('user_post validation', errors.array());
+        next(httpError('invalid data :)', 400));
+        return;
+      }
+    
+      try {
+        console.log('lomakkeesta', req.body);
+        const { email, ppicture, bio } = req.body;
+        // hash password
+        const hash = bcrypt.hashSync(password, salt);
+        const tulos = await updateUser(ppicture, email, bio, next);
+        if (tulos.affectedRows > 0) {
+          res.json({
+            message: 'user edit',
+            user_id: tulos.insertId,
+          });
+        } else {
+          next(httpError('No user inserted', 400));
+        }
+      } catch (e) {
+        console.log('user_post error', e.message);
+        next(httpError('internal server error', 500));
+      }
+    };
+  } catch (e) {
+    console.log('user_post error', e.message);
+    next(httpError('internal server error', 500));
+  }
+};
+
 module.exports = {
   login,
   user_post,
+  user_put
 };
