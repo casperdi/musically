@@ -16,37 +16,40 @@
 <header>
     <a href="front"><img id="logo" src="img/Group_3.png" alt="logo"></a>
     <a href="addPost" id="plus" class="fas fa-plus"></a>
-      
+
 </header>
 
 <body>
+    <section class="content">
         <div class="takaisin">
-            <a id="edit_takaisin"  class="first_button" href="profile">Takaisin</a>
+            <a id="edit_takaisin" class="first_button" href="profile">Takaisin</a>
         </div>
 
-    <section id="profile">
-        <div>
-            <h3>Käyttäjä</h3>
-            <input id="edit_kayttaja" type="text">
+        <div id="profile">
+            <div>
+                <h3 style="margin-bottom: 5%;">Kuva</h3>
+                <input id="edit_kuva" type="file">
+            </div>
+            <div>
+                <h3 style="margin-top: 10%;">Sähköposti</h3>
+                <input class="input" id="edit_sPosti" type="email">
+            </div>
+            <div>
+                <h3>Bio</h3>
+                <input class="input" id="edit_bio" type="text" style="height: 90%;">
+            </div>
         </div>
-        <div>
-            <h3>Sähköposti</h3>
-            <input id="edit_sPosti" type="email">
-        </div>
-        <div>
-            <h3>Bio</h3>
-            <input id="edit_bio" type="text" style="height: 90%;">
+
+        <div class="tallenna">
+            <input class="input" id="edit_tallenna" class="first_button" type="submit" value="Tallenna"></input>
         </div>
     </section>
 
-    <div class="tallenna">
-        <input id="edit_tallenna" class="first_button" type="submit" value="Tallenna"></input>
-    </div>
-
-<footer>
-    <a href="front" class="fas fa-home "></a>
-    <a href="profile" class="fas fa-user-circle"></a>
-</footer>
+    <footer>
+        <a href="front" class="fas fa-home "></a>
+        <a href="profile" class="fas fa-user-circle"></a>
+    </footer>
+    <script src="./js/edit.js"></script>
 </body>
 
 </html>

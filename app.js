@@ -29,6 +29,10 @@ app.get('/profile', function(req, res) {
     res.sendFile(path.join(__dirname, '/views/profile.html'));
 });
 
+app.get('/addData', function(req, res) {
+    res.sendFile(path.join(__dirname, '/views/addData.html'));
+});
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, console.log("server started on port " + PORT))

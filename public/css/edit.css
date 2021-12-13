@@ -13,6 +13,14 @@ body {
     flex-direction: column;
 } */
 
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 87vh;
+    padding-bottom: 60px;
+}
+
 .takaisin{
     display: flex;
     margin-left: 11%;
@@ -24,7 +32,6 @@ body {
     margin-right: 11%;
     margin-bottom: 5%;
 }
-
 
 
 .first_button {
@@ -51,7 +58,7 @@ body {
     margin-right: 10%;
 }
 
-input {
+.input {
     width: 90%;
     margin-top: 6%;
     margin-bottom: 6%;
