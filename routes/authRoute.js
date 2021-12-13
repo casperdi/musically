@@ -16,4 +16,11 @@ router.post(
   user_post
 );
 
+router.put(
+  '/edit',
+  body('ppicture'),
+  body('email').isEmail(),
+  body('bio').isLength({max: 200}).escape(),
+)
+
 module.exports = router;
