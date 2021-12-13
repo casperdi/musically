@@ -8,15 +8,18 @@ takaisinButton.addEventListener('click', async (evt) => {
   location.href = "profile"
 });
 
+// get user data for admin check
+const user = JSON.parse(sessionStorage.getItem('user'));
+
 tallennaButton.addEventListener('click', async (evt) => {
     let photo = document.getElementById("edit_kuva").files[0];  // file from input
     let formData = new FormData();
 
     formData.append("photo", photo);
-    let response = await fetch(`${url}/upload/photo`, { method: "POST", body: formData });
-    const json = await response.json();
-    const filePath = url + json.fileUrl
-    console.log("image Url " + url + json.fileUrl)
+    let imagePostresponse = await fetch(`${url}/upload/photo`, { method: "POST", body: formData });
+    const imagePostJson = await imagePostresponse.json();
+    const filePath = url + imagePostJson.fileUrl
+    console.log("image Url " + filePath)
 
     const sPosti = document.getElementById("edit_sPosti").value
     const bio = document.getElementById("edit_bio").value
@@ -25,16 +28,17 @@ const data = {
     "ppicture": filePath,
     "email": sPosti,
     "bio": bio
+    
   };
   const fetchOptions = {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   };
-  const response = await fetch(url + '/auth/edit', fetchOptions);
-  const json = await response.json();
+  let response = await fetch(url + '/auth/edit', fetchOptions);
+  let json = await response.json();
   if(response.status == 200){
     location.href = "main"
   }else{
@@ -46,3 +50,4 @@ const data = {
   )
   
 });
+

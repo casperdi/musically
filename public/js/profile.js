@@ -1,5 +1,10 @@
 'use strict';
 const url = 'http://localhost:8000'; // change url when uploading to server
+const muokkaaButton = document.querySelector('#button');
+
+muokkaaButton.addEventListener('click', async (evt) => {
+  location.href = "edit"
+});
 
 // select existing html elements
 const section = document.querySelector('#profile-info');
@@ -7,41 +12,19 @@ const section = document.querySelector('#profile-info');
 // get user data for admin check
 const user = JSON.parse(sessionStorage.getItem('user'));
 
-
 const profileInfo = () => {
 
-    const img = document.createElement('img');
-    img.src = url + '/thumbnails/' + user.ppicture;
-    img.alt = user.username;
-    img.classList.add('profilepic');
-
-    
-
-    const p2 = document.createElement('p');
-    p2.innerHTML = user.bio;
 
 
-    const p1 = document.createElement('p');
-    p1.innerHTML = user.username;
-    p1.setAttribute('id','profile-name');
+    const profileName = document.querySelector('#profile-name')
+    profileName.innerHTML = user.username
 
-    const a = document.createElement('a');
-    a.href = "edit";
-    a.classList.add('fa-cog'); 
-    a.classList.add('fas'); 
+    const profileImage = document.querySelector('#profilepic')
+    profileImage.src = user.ppicture
 
-  
-    const wrap =  document.createElement('div');
-    wrap.setAttribute('id','info-wrap');
+    const info = document.querySelector('#info_text')
+    info.innerHTML = user.profileInfo
 
-    wrap.appendChild(p1);
-    wrap.appendChild(p2);
-
-    wrap.appendChild(a);
-    
-    /* wrap.appendChild(p2); */
-    section.appendChild(img);
-    section.appendChild(wrap);
 }
 
 const getUser = async () => {
