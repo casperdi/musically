@@ -2,7 +2,8 @@
 const express = require('express');
 const { body } = require('express-validator');
 const router = express.Router();
-const { login, user_post } = require('../controllers/authController');
+const { login, user_post, user_edit } = require('../controllers/authController');
+const { user_get } = require('../controllers/userController');
 
 router.post('/login', login);
 
@@ -16,11 +17,23 @@ router.post(
   user_post
 );
 
-router.put(
-  '/edit',
+/* router.put(
+  '/edit', 
   body('ppicture'),
   body('email').isEmail(),
   body('bio').isLength({max: 200}).escape(),
-)
+  user_edit
+) */
+
+router
+  .route('/:id')
+  .get(user_get)
+  .put(
+    body('ppicture'),
+    body('email').isEmail(),
+    body('bio').isLength({max: 200}).escape(),
+    user_edit
+  
+  );
 
 module.exports = router;

@@ -18,7 +18,7 @@ const getAllUsers = async (next) => {
 const getUser = async (id, next) => {
   try {
     const [rows] = await promisePool.execute(
-      'SELECT userID, email, ppicture, bio FROM m_user WHERE user_id = ?',
+      'SELECT userID, email, ppicture, bio FROM m_user WHERE userID = ?',
       [id]
     );
     return rows;
@@ -37,6 +37,25 @@ const addUser = async (username, email, password, ppicture, bio, next) => {
     return rows;
   } catch (e) {
     console.error('addUser error', e.message);
+    next(httpError('Database error', 500));
+  }
+};
+const modifyUser = async (
+  userID,
+  ppicture,
+  email,
+  bio,
+  next
+) => {
+  let sql =
+    'UPDATE m_user SET email = ?, ppicture = ?, bio = ? WHERE userID = ?;';
+  let params = [email, ppicture, bio, userID];
+  console.log('sql', sql);
+  try {
+    const [rows] = await promisePool.execute(sql, params);
+    return rows;
+  } catch (e) {
+    console.error('modifyUser error', e.message);
     next(httpError('Database error', 500));
   }
 };
@@ -59,5 +78,6 @@ module.exports = {
   getAllUsers,
   getUser,
   addUser,
+  modifyUser,
   getUserLogin,
 };

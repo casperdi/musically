@@ -2,7 +2,7 @@
 const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const { addUser } = require('../models/userModel');
+const { addUser, modifyUser } = require('../models/userModel');
 const { httpError } = require('../utils/errors');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(12);
@@ -55,7 +55,45 @@ const user_post = async (req, res, next) => {
   }
 };
 
+const user_edit = async (req, res, next) => {
+  console.log('user_edit', req.body, req.params);
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log('user_edit validation', errors.array());
+    next(httpError('invalid data', 400));
+    return;
+  }
+  // pvm VVVV-KK-PP esim 2010-05-28
+  try {
+    const {email, ppicture, bio } = req.body;
+    /*let owner = req.user.user_id;
+    if (req.user.role === 0) {
+      owner = req.body.owner;
+    }*/
+
+    const tulos = await modifyUser(
+      req.params.user_id,
+      email,
+      ppicture,
+      bio,
+      next
+    );
+    if (tulos.affectedRows > 0) {
+      res.json({
+        message: 'user modified',
+        cat_id: tulos.insertId,
+      });
+    } else {
+      next(httpError('No user modified', 400));
+    }
+  } catch (e) {
+    console.log('user_edit error', e.message);
+    next(httpError('internal server error', 500));
+  }
+};
+
 module.exports = {
   login,
   user_post,
+  user_edit
 };
