@@ -74,10 +74,24 @@ const getUserLogin = async (params) => {
   }
 };
 
+const updateUser = async (ppicture, email, bio, next) => {
+  try {
+    const [rows] = await promisePool.execute(
+      'UPDATE m_user SET (ppicture, email, bio) VALUES (?, ?, ?)',
+      [ppicture, email, bio]
+    );
+    return rows;
+  } catch (e) {
+    console.error('updateUser error', e.message);
+    next(httpError('Database error', 500));
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUser,
   addUser,
   modifyUser,
   getUserLogin,
+  updateUser,
 };
