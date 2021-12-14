@@ -28,6 +28,7 @@ const profileInfo = (kayttaja) => {
 
 }
 
+
 const getUser = async () => {
     try {
       const fetchOptions = {
