@@ -72,7 +72,7 @@ const user_edit = async (req, res, next) => {
     }*/
 
     const tulos = await modifyUser(
-      req.params.user_id,
+      req.params.id,
       email,
       ppicture,
       bio,

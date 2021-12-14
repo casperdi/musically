@@ -39,7 +39,7 @@ router.post(
         res
           .status(403)
           .contentType("text/plain")
-          .end("Only .png files are allowed!");
+          .end("Only .png/.jpg files are allowed!");
       });
     }
   }
