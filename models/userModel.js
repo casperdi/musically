@@ -42,8 +42,8 @@ const addUser = async (username, email, password, ppicture, bio, next) => {
 };
 const modifyUser = async (
   userID,
-  ppicture,
   email,
+  ppicture,
   bio,
   next
 ) => {

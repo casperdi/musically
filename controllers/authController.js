@@ -90,7 +90,7 @@ console.log(email, ppicture, bio, req.params.id,)
     console.log('user_edit error', e.message);
   }
 }
-const user_put = async (req, res, next) => {
+/* const user_put = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log('user_post validation', errors.array());
@@ -131,11 +131,11 @@ const user_put = async (req, res, next) => {
     console.log('user_post error', e.message);
     next(httpError('internal server error', 500));
   }
-};
+}; */
 
 module.exports = {
   login,
   user_post,
   user_edit,
-  user_put
+  /* user_put */
 };
