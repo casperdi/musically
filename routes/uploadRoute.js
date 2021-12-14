@@ -6,6 +6,7 @@ const path = require("path");
 const fs = require("fs");
 
 const multer = require("multer");
+const { addPost } = require('../controllers/uploadController');
 
 const handleError = (err, res) => {
   res
@@ -17,6 +18,14 @@ const handleError = (err, res) => {
 const upload = multer({
   dest: "../temp"
 });
+
+router
+.route('/addData/:id')
+.post(
+  body('video'),
+  body('caption'),
+  addPost  
+);
 
 
 router.post(

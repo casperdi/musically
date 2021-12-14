@@ -87,6 +87,19 @@ const updateUser = async (ppicture, email, bio, next) => {
   }
 };
 
+const addVideo = async (video, caption, userID, next) => {
+  try {
+    const [rows] = await promisePool.execute(
+      'INSERT INTO m_post (video, caption, userID) VALUES (?, ?, ?)',
+      [video, caption, userID]
+    );
+    return rows;
+  } catch (e) {
+    console.error('addVideo error', e.message);
+    next(httpError('Database error', 500));
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUser,
@@ -94,4 +107,5 @@ module.exports = {
   modifyUser,
   getUserLogin,
   updateUser,
+  addVideo,
 };
