@@ -1,9 +1,14 @@
 'use strict';
 const url = 'http://localhost:8000'; // change url when uploading to server
-const muokkaaButton = document.querySelector('#button');
+const muokkaaButton = document.querySelector('#button1');
+const logoutButton = document.querySelector('#button2')
 
 muokkaaButton.addEventListener('click', async (evt) => {
   location.href = "edit"
+});
+
+logoutButton.addEventListener('click', async (evt) => {
+  location.href = "logout"
 });
 
 // select existing html elements

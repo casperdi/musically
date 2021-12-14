@@ -19,6 +19,10 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: #3a3a3a solid 2px;
+    position: fixed;
+    top: 0;
+    background-color: #000;
+    width: 100%;
 }
 
 header a {

@@ -3,14 +3,14 @@
 const url = 'http://localhost:8000';
 const takaisinButton = document.querySelector('#edit_takaisin');
 const tallennaButton = document.querySelector('#edit_tallenna');
-const modForm = document.querySelector('#profile');
+const modForm = document.getElementById('profile');
 takaisinButton.addEventListener('click', async (evt) => {
   location.href = "profile"
 });
 
 // get user data for admin check
 const user = JSON.parse(sessionStorage.getItem('user'));
-
+console.log(user)
 
 const getUser = async (id) => {
   const fetchOptions = {
@@ -22,9 +22,9 @@ const getUser = async (id) => {
   console.log(response);
   const cat = await response.json();
   const inputs = modForm.querySelectorAll('input');
-  inputs[0].value = user.ppicture;
-  inputs[1].value = user.email;
-  inputs[2].value = user.bio;
+  inputs[0].value = /* url + '/uploads/'  +  cat.ppicture */'';
+  inputs[1].value = cat.email;
+  inputs[2].value = cat.bio;
 };
 
 tallennaButton.addEventListener('click', async (evt) => {
@@ -74,4 +74,6 @@ const data = {
   )
   
 });
+
+getUser(user.userID);
 

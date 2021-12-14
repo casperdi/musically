@@ -24,6 +24,7 @@ body {
 .takaisin{
     display: flex;
     margin-left: 11%;
+    margin-top: 20%;
 }
 
 .tallenna{

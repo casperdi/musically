@@ -1,0 +1,44 @@
+body {
+    font-size: 16px;
+}
+
+#post-container{
+    width: 100%;
+    margin-top: 3%;
+    
+}
+
+.profilepic{
+    width: 15%;
+    border-radius: 50%;
+}
+
+.post-profile{
+    display: flex;
+    margin-bottom: 3%;
+    padding: 2%;
+}
+
+.username{
+    font-size: 2em;
+    padding: 8px;
+}
+
+.post-video{
+    width: 100%;
+}
+
+.list-item {
+    margin-top: 5%;
+}
+
+li:first-child{
+    margin-top: 30%;
+}
+
+
+@media only screen and (min-width: 380px) {
+    li:last-child{
+        margin-bottom: 10%;
+    }
+  }
