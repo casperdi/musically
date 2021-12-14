@@ -81,7 +81,7 @@ console.log(email, ppicture, bio, req.params.id,)
     if (tulos.affectedRows > 0) {
       res.json({
         message: 'user modified',
-        cat_id: tulos.insertId,
+        user_id: tulos.insertId,
       });
     } else {
       next(httpError('No user modified', 400));
