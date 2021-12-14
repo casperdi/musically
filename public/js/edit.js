@@ -12,8 +12,10 @@ takaisinButton.addEventListener('click', async (evt) => {
 const user = JSON.parse(sessionStorage.getItem('user'));
 
 tallennaButton.addEventListener('click', async (evt) => {
-    let photo = document.getElementById("edit_kuva").files[0];  // file from input
+    let photo = document.getElementById("edit_kuva").files[0];
+    let photoName = photo.name;  // file from input
     let formData = new FormData();
+    console.log(photoName)
 
     formData.append("photo", photo);
     let imagePostresponse = await fetch(`${url}/upload/photo`, { method: "POST", body: formData });
@@ -25,11 +27,17 @@ tallennaButton.addEventListener('click', async (evt) => {
     const bio = document.getElementById("edit_bio").value
 
 const data = {
-    "ppicture": filePath,
+    "ppicture": photoName,
     "email": sPosti,
     "bio": bio
     
   };
+
+  for (const [prop, value] of Object.entries(data)) {
+    if (value === '') {
+      delete data[prop];
+    }
+  }
   const fetchOptions = {
     method: 'PUT',
     headers: {
@@ -37,10 +45,10 @@ const data = {
     },
     body: JSON.stringify(data),
   };
-  let response = await fetch(url + '/auth/edit', fetchOptions);
-  let json = await response.json();
+  const response = await fetch(url + '/auth/' + user.userID, fetchOptions);
+  const json = await response.json();
   if(response.status == 200){
-    location.href = "main"
+    location.href = "profile"
   }else{
     alert(json.message)
   }
