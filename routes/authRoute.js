@@ -26,7 +26,7 @@ router.post(
 ) */
 
 router
-  .route('/:id')
+  .route('/edit/:id')
   .get(user_get)
   .put(
     body('ppicture'),
