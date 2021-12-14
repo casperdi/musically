@@ -103,7 +103,7 @@ const addVideo = async (video, caption, userID, next) => {
 const getAllPosts = async (next) => {
   try {
     const [rows] = await promisePool.execute(
-      'SELECT postID, video, date, caption, m_post.userID, m_user.username, m_user.ppicture FROM m_post JOIN m_user ON m_post.userID = m_user.userID ORDER by date asc',
+      'SELECT postID, video, date, caption, m_post.userID, m_user.username, m_user.ppicture FROM m_post JOIN m_user ON m_post.userID = m_user.userID ORDER by date desc',
     );
     return rows;
   } catch (e) {
