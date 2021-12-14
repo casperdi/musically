@@ -37,10 +37,11 @@ const data = {
     },
     body: JSON.stringify(data),
   };
-  let response = await fetch(url + '/auth/edit', fetchOptions);
+  let userId = "13"
+  let response = await fetch(url + '/auth/edit/'+userId, fetchOptions);
   let json = await response.json();
   if(response.status == 200){
-    location.href = "main"
+    location.href = "profile"
   }else{
     alert(json.message)
   }

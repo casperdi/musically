@@ -1,6 +1,11 @@
 'use strict';
 
 const url = 'http://localhost:8000';
+const peruutaButton = document.querySelector('#aD_peruuta');
+
+peruutaButton.addEventListener('click', async (evt) => {
+  location.href = "profile"
+});
 const lataa = document.querySelector('#aD_tallenna');
 
 lataa.addEventListener('click', async (evt) => {
