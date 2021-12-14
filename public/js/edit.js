@@ -45,7 +45,7 @@ const data = {
     },
     body: JSON.stringify(data),
   };
-  const response = await fetch(url + '/auth/' + user.userID, fetchOptions);
+  const response = await fetch(url + '/auth/edit/' + user.userID, fetchOptions);
   const json = await response.json();
   if(response.status == 200){
     location.href = "profile"

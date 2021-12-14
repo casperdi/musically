@@ -20,7 +20,7 @@ const profileInfo = () => {
     profileName.innerHTML = user.username
 
     const profileImage = document.querySelector('#profilepic')
-    profileImage.src = url + '/uploads/'  + user.ppicture;
+    profileImage.src = url + '/uploads/'  +  user.ppicture;
 
     const info = document.querySelector('#info_text')
     info.innerHTML = user.bio;
