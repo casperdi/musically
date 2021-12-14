@@ -4,7 +4,7 @@ const url = 'http://localhost:8000';
 const peruutaButton = document.querySelector('#aD_peruuta');
 
 peruutaButton.addEventListener('click', async (evt) => {
-  location.href = "profile"
+  location.href = "front"
 });
 const lataa = document.querySelector('#aD_tallenna');
 
