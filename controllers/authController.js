@@ -70,9 +70,9 @@ const user_edit = async (req, res, next) => {
     if (req.user.role === 0) {
       owner = req.body.owner;
     }*/
-
+console.log(email, ppicture, bio, req.params.user_id,)
     const tulos = await modifyUser(
-      req.params.user_id,
+      req.params.id,
       email,
       ppicture,
       bio,
