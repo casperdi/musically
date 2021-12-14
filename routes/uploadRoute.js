@@ -6,7 +6,7 @@ const path = require("path");
 const fs = require("fs");
 
 const multer = require("multer");
-const { addPost } = require('../controllers/uploadController');
+const { addPost, post_list_get } = require('../controllers/uploadController');
 
 const handleError = (err, res) => {
   res
@@ -18,6 +18,11 @@ const handleError = (err, res) => {
 const upload = multer({
   dest: "../temp"
 });
+
+router
+  .route('/post')
+  .get(post_list_get)
+  ;
 
 router
 .route('/addData/:id')
