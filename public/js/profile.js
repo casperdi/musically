@@ -12,21 +12,22 @@ const section = document.querySelector('#profile-info');
 // get user data for admin check
 const user = JSON.parse(sessionStorage.getItem('user'));
 
-const profileInfo = () => {
-  console.log(user)
+const profileInfo = (kayttaja) => {
+
 
 
     const profileName = document.querySelector('#profile-name')
-    profileName.innerHTML = user.username
+    profileName.innerHTML = kayttaja.username
 
     const profileImage = document.querySelector('#profilepic')
-    profileImage.src = url + '/uploads/'  + user.ppicture;
+    profileImage.src = url + '/uploads/'  +  kayttaja.ppicture;
 
     const info = document.querySelector('#info_text')
-    info.innerHTML = user.bio;
+    info.innerHTML = kayttaja.bio;
 
 
 }
+
 
 const getUser = async () => {
     try {
@@ -35,7 +36,7 @@ const getUser = async () => {
           Authorization: 'Bearer ' + sessionStorage.getItem('token'),
         },
       };
-      const response = await fetch(url + '/user', fetchOptions);
+      const response = await fetch(url + '/user/' + user.userID , fetchOptions);
       const vittu = await response.json();
       profileInfo(vittu);
     } catch (e) {

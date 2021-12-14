@@ -7,7 +7,7 @@ const peruutaButton = document.querySelector('#aD_peruuta');
 const user = JSON.parse(sessionStorage.getItem('user'));
 
 peruutaButton.addEventListener('click', async (evt) => {
-  location.href = "profile"
+  location.href = "front"
 });
 const lataa = document.querySelector('#aD_tallenna');
 
