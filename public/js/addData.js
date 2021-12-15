@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://localhost:8000';
+const url = 'http://10.114.34.92/server';
 const peruutaButton = document.querySelector('#aD_peruuta');
 
 peruutaButton.addEventListener('click', async (evt) => {

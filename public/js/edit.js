@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://localhost:8000';
+const url = 'http://10.114.34.92/server';
 const takaisinButton = document.querySelector('#edit_takaisin');
 const tallennaButton = document.querySelector('#edit_tallenna');
 const modForm = document.getElementById('profile');
