@@ -28,7 +28,7 @@ router
 .route('/addData/:id')
 .post(
   body('video'),
-  body('caption'),
+  body('caption').isLength({max: 200}).escape(),
   addPost  
 );
 
