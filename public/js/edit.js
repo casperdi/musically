@@ -22,9 +22,10 @@ const getUser = async (id) => {
   console.log(response);
   const cat = await response.json();
   const inputs = modForm.querySelectorAll('input');
+  const biotext = modForm.querySelector('textarea');
   inputs[0].value = /* url + '/uploads/'  +  cat.ppicture */'';
   inputs[1].value = cat.email;
-  inputs[2].value = cat.bio;
+  biotext.value = cat.bio;
 };
 
 tallennaButton.addEventListener('click', async (evt) => {
