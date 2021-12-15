@@ -107,10 +107,35 @@ const getAllPosts = async (next) => {
     );
     return rows;
   } catch (e) {
-    console.error('getUser error', e.message);
+    console.error('getAll error', e.message);
     next(httpError('Database error', 500));
   }
 };
+
+const getUserPost = async (next, userID) => {
+  try {
+    const [rows] = await promisePool.execute(
+      'SELECT postID, video, date, caption, m_post.userID FROM m_post WHERE userID = ?',
+      [userID])
+    return rows;
+  } catch (e) {
+    console.error('getUserPost error', e.message);
+    next(httpError('Database error', 500));
+  }
+};
+
+const deletePost = async (next, postID) => {
+  try {
+    const [rows] = await promisePool.execute(
+      'DELETE FROM m_post WHERE postID = ?',
+      [postID])
+    return rows;
+  } catch (e) {
+    console.error('getUserPost error', e.message);
+    next(httpError('Database error', 500));
+  }
+};
+
 
 module.exports = {
   getAllUsers,
@@ -120,5 +145,7 @@ module.exports = {
   getUserLogin,
   updateUser,
   addVideo,
-  getAllPosts
+  getAllPosts,
+  getUserPost,
+  deletePost
 };

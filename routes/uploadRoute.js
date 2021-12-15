@@ -6,7 +6,8 @@ const path = require("path");
 const fs = require("fs");
 
 const multer = require("multer");
-const { addPost, post_list_get } = require('../controllers/uploadController');
+const { addPost, post_list_get, get_user_post } = require('../controllers/uploadController');
+const { getUserPost, deletePost } = require('../models/userModel');
 
 const handleError = (err, res) => {
   res
@@ -23,6 +24,37 @@ router
   .route('/post')
   .get(post_list_get)
   ;
+
+  router.get('/userPost/:id', async (req,res,next ) => {
+    try {
+      const posts = await getUserPost(next, req.params.id);
+      if (posts.length > 0) {
+        res.json(posts);
+      } else {
+        next('No post found', 404);
+      }
+    } catch (e) {
+      console.log('get_user_post error', e.message);
+      next(httpError('internal server error', 500));
+    }
+  })
+
+  router.delete('/deletePost/:id', async (req,res,next ) => {
+    try {
+      const posts = await deletePost(next, req.params.id);
+      if (posts.affectedRows > 0) {
+        res.json({
+          message: 'delete modified',
+          post_id: posts.insertId,
+        });
+      } else {
+        next('No deletePost found', 404);
+      }
+    } catch (e) {
+      console.log('deletePost error', e.message);
+      next(httpError('internal server error', 500));
+    }
+  }) 
 
 router
 .route('/addData/:id')

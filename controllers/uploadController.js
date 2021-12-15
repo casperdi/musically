@@ -2,7 +2,7 @@
 const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const { addVideo, getAllPosts } = require('../models/userModel');
+const { addVideo, getAllPosts, getUserPost } = require('../models/userModel');
 const { httpError } = require('../utils/errors');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(12);
@@ -51,10 +51,26 @@ const post_list_get = async (req, res, next) => {
   }
 };
 
+const get_user_post = async (req, res, next) => {
+  try {
+    const posts = await getUserPost(next, req.params.id);
+    if (posts.length > 0) {
+      res.json(posts);
+    } else {
+      next('No post found', 404);
+    }
+  } catch (e) {
+    console.log('get_user_post error', e.message);
+    next(httpError('internal server error', 500));
+  }
+};
+
+
 
 
 module.exports = {
   addPost,
-  post_list_get
+  post_list_get,
+  get_user_post
   /* user_put */
 };
