@@ -22,9 +22,11 @@ lataa.addEventListener('click', async (evt) => {
     const filePath = url + json.fileUrl
     console.log("video Url " + url + json.fileUrl)
 
+    const caption = document.getElementById("aD_teksti").value
+
     const data = {
         "video": videoName,
-        "caption": "placeholder caption",
+        "caption": caption,
       };
 
 

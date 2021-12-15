@@ -25,7 +25,10 @@ body {
 }
 
 .post-video{
-    width: 100%;
+    width: 90%;
+    height: auto;
+    margin: 2%;
+    border: #3a3a3a solid 2px;;
 }
 
 .list-item {

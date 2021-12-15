@@ -1,4 +1,7 @@
 
+body{
+    font-family: 'Quicksand';
+}
 
 .button{
     width: 32%;
@@ -10,7 +13,6 @@
     border-radius: 15px;
     color: #fff;
     background-color: #4E00CE;
-    font-family: 'Quicksand';
     text-align: center;
     box-shadow: 10px 5px 17px #020202;
 }
@@ -37,6 +39,7 @@
 
 h1{
     font-size: 1.5em;
+    margin-bottom: 2%;
 }
 
 .aD_tallenna{
@@ -46,3 +49,21 @@ h1{
     margin-bottom: 5%;
 }
 
+h2{
+    margin-top: 10%;
+}
+
+#aD_teksti{
+    width: 90%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    padding: 3%;
+    background-color: rgba(245, 245, 245, 0.1);
+    border: #3a3a3a solid 2px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Quicksand';
+    box-shadow: 10px 5px 17px #020202;
+    height: 25%;
+}
