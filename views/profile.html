@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,19 +11,19 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/profile.css">
-   
+
 
 </head>
+
 <body>
     <header>
         <a href="front"><img id="logo" src="img/Group_3.png" alt="logo"></a>
         <a href="addData" id="plus" class="fas fa-plus"></a>
     </header>
     <main>
-        <section id="profile-info"> 
+        <section id="profile-info">
             <div id="profile_muokkaa">
-              <input href="edit" type="button" value="Muokkaa" id="button1">
-              <input href="logout" type="button" value="Kirjaudu ulos" id="button2">
+                <input href="edit" type="button" value="Muokkaa" id="button1">
             </div>
             <div id="image_and_name">
                 <img id="profilepic" src="" alt="">
@@ -31,12 +32,10 @@
             <div id="info_text">
                 <p></p>
             </div>
-       </section> 
-        <section id="followers">
-
-            <p>Seuraajat <br> 2</p>
-            <p>Seurataan <br> 20</p>
-
+            <div>
+                <ul id="list"></ul>
+            </div>
+            <input href="logout" type="button" value="Kirjaudu ulos" id="button2">
         </section>
 
     </main>
@@ -48,4 +47,5 @@
     <script src="./js/check-login.js"></script>
     <script src="./js/serialize.js"></script>
 </body>
+
 </html>

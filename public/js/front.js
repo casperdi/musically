@@ -45,7 +45,7 @@ const createPostCards = (posts) => {
     li.appendChild(div);
     li.appendChild(video);
     li.appendChild(p2);
-    
+
     ul.appendChild(li);
 
   });

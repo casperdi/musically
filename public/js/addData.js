@@ -3,12 +3,13 @@
 const url = 'http://localhost:8000';
 const peruutaButton = document.querySelector('#aD_peruuta');
 
+peruutaButton.addEventListener('click', async (evt) => {
+    location.href = "front"
+  });
+
 // get user data for admin check
 const user = JSON.parse(sessionStorage.getItem('user'));
 
-peruutaButton.addEventListener('click', async (evt) => {
-  location.href = "front"
-});
 const lataa = document.querySelector('#aD_tallenna');
 
 lataa.addEventListener('click', async (evt) => {

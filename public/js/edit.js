@@ -8,6 +8,8 @@ takaisinButton.addEventListener('click', async (evt) => {
   location.href = "profile"
 });
 
+const ul = document.getElementById("list");
+
 // get user data for admin check
 const user = JSON.parse(sessionStorage.getItem('user'));
 console.log(user)
@@ -75,5 +77,72 @@ const data = {
   
 });
 
+// create cat cards
+const createPostCards = (posts) => {
+    // clear ul
+    ul.innerHTML = '';
+    posts.forEach((post) => {
+      console.log(post)
+  
+      const video = document.createElement('h3');
+      video.innerHTML = post.video;
+      video.classList.add('post-video')
+      video.controls = true;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.innerHTML = 'Poista';
+      deleteButton.classList.add('poistaButton')
+
+      deleteButton.addEventListener('click', async (evt) => {
+          deletePost(post.postID)
+      })
+  
+      const li = document.createElement('li');
+      li.classList.add('list-item')
+  
+      li.appendChild(video);
+      video.appendChild(deleteButton);
+      ul.appendChild(li);
+  
+    });
+  
+  };
+
+  const getPosts = async () => {
+    try {
+      const fetchOptions = {
+        headers: {
+          Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+        },
+      };
+      const response = await fetch(url + '/upload/userPost/' + user.userID, fetchOptions);
+      const posts = await response.json();
+      console.log(posts)
+      createPostCards(posts);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+  
+  const deletePost = async (postID) => {
+    try {
+      const fetchOptions = {
+        method: 'DELETE',
+        headers: {
+          Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+        },
+      };
+      const response = await fetch(url + '/upload/deletePost/' + postID, fetchOptions);
+      const posts = await response.json();
+      console.log(posts)
+      console.log(response.status)
+      getPosts();
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
 getUser(user.userID);
+getPosts();
+deletePost();
 
