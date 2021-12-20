@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://localhost:8000';
+const url = 'http://10.114.34.92/server';
 const addUserForm = document.querySelector('#add-user-form');
 const rekisteroidyButton = document.querySelector('#reg_rekisteroidy');
 const peruutaButton = document.querySelector('#reg_peruuta');

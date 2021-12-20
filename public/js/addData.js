@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://http://10.114.34.92/server';
+const url = 'http://10.114.34.92/server';
 //10.114.34.92/server
 const peruutaButton = document.querySelector('#aD_peruuta');
 
