@@ -55,7 +55,7 @@
     margin-bottom: 6%;
     padding: 3%;
     background-color: rgba(0, 0, 0, 0.1);
-    border: #3a3a3a solid 2px;
+    border: #150444 solid 2px;
     border-radius: 15px;
     color: #fff;
     font-size: 1em;
@@ -67,7 +67,7 @@
     width: 90%;
     height: auto;
     margin: 2%;
-    border: #3a3a3a solid 2px;
+    border: #150444 solid 2px;
     justify-content: space-around;
     display: flex;
     border-radius: 15px;

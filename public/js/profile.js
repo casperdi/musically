@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:8000'; // change url when uploading to server
+const url = 'http://10.114.34.92/server'; // change url when uploading to server
 const muokkaaButton = document.querySelector('#button1');
 const logoutButton = document.querySelector('#button2')
 
