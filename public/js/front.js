@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'http://10.114.34.92/server'; // change url when uploading to server
+const url = 'http://localhost:8000'; // change url when uploading to server
 
 // select existing html elements
 const ul = document.getElementById("list");

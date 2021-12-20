@@ -4,7 +4,7 @@
 html,
 body{
     background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(33,4,80,1) 100%);
+    background: linear-gradient(180deg, rgb(0, 0, 0) 20%, rgb(37, 2, 132) 100%);
     width: 100vw;
     height: 100vh;
     font-size: 16px;
@@ -32,10 +32,14 @@ header a {
 }
 
 #logo {
-    width: 55%;
+    width: 65%;
 }
 #plus{
     width: 30%;
+    margin-right: 5%;
+}
+#plus:focus{
+    color: #000;
 }
 
 .fas{
@@ -58,6 +62,9 @@ footer {
 footer a {
     text-decoration: none;
     color: #fff;
+}
+footer a:focus{
+    color: #000;
 }
 
 /* footer{
@@ -93,9 +100,6 @@ footer a {
     padding-right: 8%;
 } */
 
-.selected {
-    color: #4E00CE;
-}
 
 a {
     text-decoration: none;

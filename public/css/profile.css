@@ -68,9 +68,9 @@ main{
     margin-bottom: 2%;
     padding: 2%;
     border: #4E00CE solid 1px;
-    border-radius: 15px;
+    border-radius: 12px;
     color: #fff;
-    background-color: #4E00CE;
+    background-color: rgba(0, 0, 0, 0.1);
     font-family: 'Quicksand';
     text-align: center;
     box-shadow: 10px 5px 17px #020202;
@@ -84,8 +84,8 @@ main{
     font-size: 1em;
     border: 1px solid #c70a0a;
     border-radius: 15px;
-    color: #fff;
-    background-color: #c70a0a;
+    color: #f00;
+    background-color: #00000030;
     font-family: 'Quicksand';
     text-align: center;
     box-shadow: 10px 5px 17px #020202;
